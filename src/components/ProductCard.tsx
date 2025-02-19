@@ -1,3 +1,5 @@
+
+import { NavLink } from "react-router";
 import type { Product } from "@/utils/types/Products"
 import { StarIcon, ShoppingCartIcon } from '@heroicons/react/24/solid'
 
@@ -37,12 +39,14 @@ const productCard: React.FC<ProductCardProps> = (props) => {
 
                     <div className="flex justify-between items-center px-2 pb-2">
                         <p className="text-white font-semibold text-2xl">$ {product.price}</p>
-                        <button className="bg-amber-300 text-black text-sm font-semibold px-3 py-1 flex items-center gap-2 
-                            rounded-full hover:cursor-pointer  hover:bg-amber-400 transition-colors border-none"
-                        >
-                            <ShoppingCartIcon className="h-4 w-4" />
-                            Buy
-                        </button>
+                        <NavLink to={`/product/${product.id}`}>
+                            <button className="bg-amber-300 text-black text-sm font-semibold px-3 py-1 flex items-center gap-2 
+                                rounded-full hover:cursor-pointer  hover:bg-amber-400 transition-colors border-none"
+                            >
+                                <ShoppingCartIcon className="h-4 w-4" />
+                                Buy
+                            </button>
+                        </NavLink>
                     </div>
                 </div>
             </div>
